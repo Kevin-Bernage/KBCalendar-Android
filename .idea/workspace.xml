@@ -13,10 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc5aba6-66fd-49af-9c34-00f29ffc6ecd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KBCalendar.iml" afterPath="$PROJECT_DIR$/KBCalendar.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendar.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KBCalendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,24 +77,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="KBCalendar.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="KBCalendar.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="9" selection-start="1433" selection-end="1433" vertical-scroll-proportion="-2.7287853" vertical-offset="2180" max-vertical-offset="3225">
+            <state line="123" column="16" selection-start="4386" selection-end="4415" vertical-scroll-proportion="0.0" vertical-offset="1485" max-vertical-offset="3360">
               <folding>
-                <element signature="e#3444#3778#0" expanded="true" />
-                <element signature="e#3767#3768#0" expanded="true" />
-                <element signature="e#5999#6440#0" expanded="true" />
-                <element signature="e#6421#6422#0" expanded="true" />
+                <element signature="e#3738#4190#0" expanded="true" />
+                <element signature="e#4179#4180#0" expanded="true" />
+                <element signature="e#6411#7010#0" expanded="true" />
+                <element signature="e#6991#6992#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="1" selection-start="722" selection-end="722" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+            <state line="22" column="41" selection-start="627" selection-end="627" vertical-scroll-proportion="0.42429283" vertical-offset="0" max-vertical-offset="601">
               <folding />
             </state>
           </provider>
@@ -106,7 +103,7 @@
       <file leaf-file-name="KBCalendarAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendarAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="36" selection-start="2973" selection-end="3015" vertical-scroll-proportion="0.0" vertical-offset="899" max-vertical-offset="1500">
+            <state line="92" column="36" selection-start="2973" selection-end="3015" vertical-scroll-proportion="0.0" vertical-offset="764" max-vertical-offset="1500">
               <folding />
             </state>
           </provider>
@@ -2145,10 +2142,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="0" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="2820">
           <folding>
-            <element signature="e#3444#3778#0" expanded="true" />
-            <element signature="e#3767#3768#0" expanded="true" />
-            <element signature="e#5999#6440#0" expanded="true" />
-            <element signature="e#6421#6422#0" expanded="true" />
+            <element signature="e#3738#4190#0" expanded="true" />
+            <element signature="e#4179#4180#0" expanded="true" />
+            <element signature="e#6411#7010#0" expanded="true" />
+            <element signature="e#6991#6992#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2167,22 +2164,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="1" selection-start="722" selection-end="722" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding />
+        <state line="123" column="16" selection-start="4386" selection-end="4415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3360">
+          <folding>
+            <element signature="e#3738#4190#0" expanded="true" />
+            <element signature="e#4179#4180#0" expanded="true" />
+            <element signature="e#6411#7010#0" expanded="true" />
+            <element signature="e#6991#6992#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendar.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="9" selection-start="1433" selection-end="1433" vertical-scroll-proportion="-2.7287853" vertical-offset="2180" max-vertical-offset="3225">
-          <folding>
-            <element signature="e#3444#3778#0" expanded="true" />
-            <element signature="e#3767#3768#0" expanded="true" />
-            <element signature="e#5999#6440#0" expanded="true" />
-            <element signature="e#6421#6422#0" expanded="true" />
-          </folding>
+        <state line="22" column="41" selection-start="627" selection-end="627" vertical-scroll-proportion="0.42429283" vertical-offset="0" max-vertical-offset="601">
+          <folding />
         </state>
       </provider>
     </entry>

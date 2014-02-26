@@ -70,6 +70,9 @@ public class KBCalendar extends View {
         mListView = (TwoWayView) rootView.findViewById(R.id.list);
         mListView.setHorizontalScrollBarEnabled(false);
 
+
+        //ArrayList of dates is set with all the dates between
+        //start and end date
         GregorianCalendar calendar = new java.util.GregorianCalendar();
         for (Date date = dateStartCalendar; !date.equals(dateEndCalendar);) {
             calendar.setTime(date);
@@ -84,6 +87,8 @@ public class KBCalendar extends View {
             @Override
             public void onScrollStateChanged(TwoWayView view, int scrollState) {
                 if(scrollState == 0){
+                    //On scroll end, the dateSelect event is call
+                    //and agenda is center to the good item
                     int position = getPositionOfCenterItem();
                     iAgendaDateSelect.onDateSelect(mListDays.get(position));
                     centerToPosition(position);
@@ -92,6 +97,7 @@ public class KBCalendar extends View {
 
             @Override
             public void onScroll(TwoWayView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                //On Scroll, agenda is refresh to update background colors
                 int shiftCells = numberOfRowOnScreen / 2;
                 positionOfCenterItem = firstVisibleItem + shiftCells;
                 mCalendarAdapter.notifyDataSetChanged();
@@ -101,6 +107,8 @@ public class KBCalendar extends View {
             @Override
             public void onItemClick(AdapterView<?> parent, View child, int position,
                                     long id) {
+                //On item Click, the dateSelect event is call
+                //and agenda is center to the good item
                 iAgendaDateSelect.onDateSelect(mListDays.get(position));
                 centerToPosition(position);
             }
@@ -170,6 +178,8 @@ public class KBCalendar extends View {
                 mListView.post(new Runnable() {
                     @Override
                     public void run() {
+                        //Selection item is the firstItemVisible
+                        //So the selected item is set to the position - the number of row /2
                         int shiftCells = numberOfRowOnScreen / 2;
                         if(position - shiftCells > 0){
                             mListView.setSelection(position - shiftCells);
@@ -198,7 +208,6 @@ public class KBCalendar extends View {
             int shiftCells = numberOfRowOnScreen / 2;
             positionOfCenterItem = position + shiftCells;
             mCalendarAdapter.notifyDataSetChanged();
-            mListView.requestLayout();
         }
     }
 
