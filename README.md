@@ -6,7 +6,7 @@ What's KBCalendar ?
 KBCalendar is an android horizontal calendar who uses [twoway-view](https://github.com/lucasr/twoway-view) make by [Lucas Rocha](https://github.com/lucasr).
 KBCalendar wants to show a list of days with a selected effect on the center day.
 
-![PreviewImage](https://github.com/Kevin-Bernage/KBCalendar/blob/master/Screenshots/kbcalendar.gif?raw=true) 
+![PreviewImage](http://i.picasion.com/pic76/f3ea3b7eabe6a49ad213587f1a08e40a.gif) 
 
 
 How do I use it?
