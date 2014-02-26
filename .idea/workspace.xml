@@ -12,9 +12,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.kevinbernage.kbcalendar.app" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdc5aba6-66fd-49af-9c34-00f29ffc6ecd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendar.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/kevinbernage/kbcalendar/app/KBCalendar.java" />
-    </list>
+    <list default="true" id="bdc5aba6-66fd-49af-9c34-00f29ffc6ecd" name="Default" comment="" />
     <ignored path="KBCalendar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
