@@ -29,12 +29,14 @@ public class KBCalendar extends View {
     private Date dateStartCalendar;
     private Date dateEndCalendar;
 
+    private IAgendaDateSelect iAgendaDateSelect;
+
     //Number of Row Show on Screen
     private int numberOfRowOnScreen;
     //Position in arraylist of the center item
     public static int positionOfCenterItem;
 
-    public KBCalendar(Context context) {
+    public KBCalendar(Context context, IAgendaDateSelect iAgendaDateSelect) {
         super(context);
         numberOfRowOnScreen = 5;
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -49,7 +51,7 @@ public class KBCalendar extends View {
 
         mListDays = new ArrayList<Date>();
 
-
+        this.iAgendaDateSelect = iAgendaDateSelect;
 
     }
 
@@ -81,7 +83,11 @@ public class KBCalendar extends View {
         mListView.setOnScrollListener(new TwoWayView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(TwoWayView view, int scrollState) {
-
+                if(scrollState == 0){
+                    int position = getPositionOfCenterItem();
+                    iAgendaDateSelect.onDateSelect(mListDays.get(position));
+                    centerToPosition(position);
+                }
             }
 
             @Override
@@ -95,6 +101,7 @@ public class KBCalendar extends View {
             @Override
             public void onItemClick(AdapterView<?> parent, View child, int position,
                                     long id) {
+                iAgendaDateSelect.onDateSelect(mListDays.get(position));
                 centerToPosition(position);
             }
         });
@@ -149,7 +156,10 @@ public class KBCalendar extends View {
         CenterToPositionTask centerTask = new CenterToPositionTask();
         centerTask.position = position;
         centerTask.execute();
-
+    }
+    /* Return position of selected date on center of screen*/
+    private int getPositionOfCenterItem(){
+        return mListView.getFirstVisiblePosition() + numberOfRowOnScreen / 2;
     }
 
     private class CenterToPositionTask extends AsyncTask<Void, Void, String[]> {
@@ -173,6 +183,10 @@ public class KBCalendar extends View {
 
         @Override
         protected String[] doInBackground(Void... params) {
+            try {Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return null;
         }
 
@@ -184,6 +198,7 @@ public class KBCalendar extends View {
             int shiftCells = numberOfRowOnScreen / 2;
             positionOfCenterItem = position + shiftCells;
             mCalendarAdapter.notifyDataSetChanged();
+            mListView.requestLayout();
         }
     }
 
@@ -205,4 +220,9 @@ public class KBCalendar extends View {
     }
 
 
+    public interface IAgendaDateSelect {
+
+        public void onDateSelect(Date date);
+
+    }
 }
