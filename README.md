@@ -8,6 +8,8 @@ KBCalendar wants to show a list of days with a selected effect on the center day
 
 ![PreviewImage](http://i.picasion.com/pic76/f3ea3b7eabe6a49ad213587f1a08e40a.gif) 
 
+[Video available here](https://drive.google.com/file/d/0Bz_yKoJtTIWmVGJOSThMU1lJam8/edit?usp=sharing)
+
 
 How do I use it?
 ================
