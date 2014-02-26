@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<!-- From: file:/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/src/main/AndroidManifest.xml -->
+<!-- From: file:/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="Alpha 1" package="org.lucasr.twowayview">
 
     <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="16"/>

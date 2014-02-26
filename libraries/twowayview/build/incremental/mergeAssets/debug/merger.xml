@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/src/main/assets" />
+        <source path="/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/src/main/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/src/debug/assets" />
+        <source path="/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/src/debug/assets" />
     </dataSet>
 
 </merger>

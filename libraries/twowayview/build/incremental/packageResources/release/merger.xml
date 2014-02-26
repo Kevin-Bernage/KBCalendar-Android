@@ -2,9 +2,9 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/src/main/res" >
+        <source path="/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/src/main/res" >
             <file
-                path="/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/src/main/res/values/attrs.xml"
+                path="/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/src/main/res/values/attrs.xml"
                 qualifiers="" >
                 <declare-styleable name="TwoWayView" >
 
@@ -86,11 +86,11 @@
                 </declare-styleable>
             </file>
         </source>
-        <source path="/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/build/res/rs/release" />
-        <source path="/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/build/res/generated/release" />
+        <source path="/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/build/res/rs/release" />
+        <source path="/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/build/res/generated/release" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/Users/Kevin/Documents/Sources/Android/Covivo/KBCalendar/libraries/twowayview/src/release/res" />
+        <source path="/Users/Kevin/Documents/Sources/Android/Perso/KBCalendar/libraries/twowayview/src/release/res" />
     </dataSet>
 
 </merger>

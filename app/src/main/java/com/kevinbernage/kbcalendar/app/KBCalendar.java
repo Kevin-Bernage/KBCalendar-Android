@@ -33,7 +33,6 @@ public class KBCalendar extends View {
     private int numberOfRowOnScreen;
     //Position in arraylist of the center item
     public static int positionOfCenterItem;
-    public
 
     public KBCalendar(Context context) {
         super(context);
@@ -153,10 +152,6 @@ public class KBCalendar extends View {
 
     }
 
-
-    /**
-     * Ajoute un contact de la recherche
-     */
     private class CenterToPositionTask extends AsyncTask<Void, Void, String[]> {
         int position;
         protected void onPreExecute() {
@@ -192,10 +187,6 @@ public class KBCalendar extends View {
         }
     }
 
-
-    /**
-     * Ajoute un contact de la recherche
-     */
     private class InitTask extends AsyncTask<Void, Void, String[]> {
         protected void onPreExecute() {
         }
