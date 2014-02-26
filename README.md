@@ -12,7 +12,7 @@ KBCalendar wants to show a list of days with a selected effect on the center day
 How do I use it?
 ================
 
-## Add TwoWayView 
+### Add TwoWayView 
 
 1. Import TwoWayView as a library to your project.
 
@@ -29,7 +29,7 @@ How do I use it?
         tools:context=".MainActivity" />
 
 
-## Add KBCalendar
+### Add KBCalendar
 
 1. Import KBCalendar.java and KBCalendarAdapter.java to your .app repository.
 
@@ -43,8 +43,10 @@ How do I use it?
 **That's it !**
 
    
-How can i've date event ?
+More possibilities ?
 ================
+
+### Add date events
 
 1. Implements KBCalendar.IAgendaDateSelect
 
@@ -55,7 +57,18 @@ How can i've date event ?
             Log.i("KBCalendar", "Date : " + DateFormat.format("dd/MM", date).toString());
         }
 
+### Center agenda on date
 
+ - goToday()
+ - centerToDate(Date dateCenter)
+
+### Others
+
+ - setDateStartCalendar(Date dateStartCalendar) 
+ - setDateEndCalendar(Date dateEndCalendar)
+ - setNumberOfRowOnScreen(int numberOfRowOnScreen)
+ 
+(Note : if you call these methods, pay attention to make it before loadKBCalendar())
  
 
 
