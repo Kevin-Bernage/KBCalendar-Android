@@ -40,11 +40,23 @@ How do I use it?
         KBCalendar mKBCalendar = new KBCalendar(this);
         mKBCalendar.loadKBCalendar();
 
+**That's it !**
+
    
+How can i've date event ?
+================
+
+1. Implements KBCalendar.IAgendaDateSelect
+
+2. Add the following code : 
+
+        @Override
+        public void onDateSelect(Date date) {
+            Log.i("KBCalendar", "Date : " + DateFormat.format("dd/MM", date).toString());
+        }
 
 
  
-**That's it !**
 
 
 
