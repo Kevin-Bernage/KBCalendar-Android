@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Lucas Rocha
+ * Copyright (C) 2014 Kevin Bernage
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -91,12 +91,23 @@ public class KBCalendarAdapter extends BaseAdapter {
 		}
         Date day = mListDays.get(position);
 
-        setBackgroundColorToView(holder.layoutBackground);
+        if(day.before(kbCalendar.getDateStartCalendar()) || day.after(kbCalendar.getDateEndCalendar())){
 
-        holder.txtDayName.setTextSize(kbCalendar.getDaySize());
-        holder.txtDayNumber.setTextSize(kbCalendar.getDayNumberSize());
-        holder.txtDayName.setTextColor(Color.parseColor(kbCalendar.getHexColorDay()));
-        holder.txtDayNumber.setTextColor(Color.parseColor(kbCalendar.getHexColorDayNumber()));
+            holder.layoutBackground.setBackgroundColor(Color.WHITE);
+
+            holder.txtDayName.setTextSize(kbCalendar.getDaySize() - 3);
+            holder.txtDayNumber.setTextSize(kbCalendar.getDayNumberSize() - 3);
+            holder.txtDayName.setTextColor(Color.LTGRAY);
+            holder.txtDayNumber.setTextColor(Color.LTGRAY);
+        }else{
+
+            setBackgroundColorToView(holder.layoutBackground);
+
+            holder.txtDayName.setTextSize(kbCalendar.getDaySize());
+            holder.txtDayNumber.setTextSize(kbCalendar.getDayNumberSize());
+            holder.txtDayName.setTextColor(Color.parseColor(kbCalendar.getHexColorDay()));
+            holder.txtDayNumber.setTextColor(Color.parseColor(kbCalendar.getHexColorDayNumber()));
+        }
         holder.txtDayNumber.setText(DateFormat.format(kbCalendar.getFormatDayNumber(), day).toString());
         holder.txtDayName.setText(DateFormat.format(kbCalendar.getFormatDay(), day).toString());
 

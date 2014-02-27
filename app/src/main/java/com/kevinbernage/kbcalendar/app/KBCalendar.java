@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2014 Kevin Bernage
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.kevinbernage.kbcalendar.app;
 
 import android.app.Activity;
@@ -16,9 +32,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-/**
- * Created by Kevin on 24/02/2014.
- */
 public class KBCalendar extends View {
 
     private TwoWayView mListView;
@@ -99,7 +112,15 @@ public class KBCalendar extends View {
         //ArrayList of dates is set with all the dates between
         //start and end date
         GregorianCalendar calendar = new java.util.GregorianCalendar();
-        for (Date date = dateStartCalendar; !date.equals(dateEndCalendar);) {
+
+        calendar.setTime(dateStartCalendar);
+        calendar.add(Calendar.DATE, -5);
+        Date dateStartBefore = calendar.getTime();
+        calendar.setTime(dateEndCalendar);
+        calendar.add(Calendar.DATE, 5);
+        Date dateEndAfter = calendar.getTime();
+
+        for (Date date = dateStartBefore; !date.equals(dateEndAfter);) {
             calendar.setTime(date);
             calendar.add(Calendar.DATE, 1);
             date = calendar.getTime();
@@ -154,10 +175,10 @@ public class KBCalendar extends View {
     public void setDateStartCalendar(Date dateStartCalendar) {
         this.dateStartCalendar = dateStartCalendar;
     }
+    public Date getDateStartCalendar() { return dateStartCalendar; }
     /* Set the date end of the calendar */
-    public void setDateEndCalendar(Date dateEndCalendar) {
-        this.dateEndCalendar = dateEndCalendar;
-    }
+    public void setDateEndCalendar(Date dateEndCalendar) {this.dateEndCalendar = dateEndCalendar;}
+    public Date getDateEndCalendar() { return dateEndCalendar; }
     /* Set the number of row that appears on screen */
     public void setNumberOfRowOnScreen(int numberOfRowOnScreen) {
         this.numberOfRowOnScreen = numberOfRowOnScreen;
@@ -174,8 +195,6 @@ public class KBCalendar extends View {
     public void setFormatDay(String formatDay) { this.formatDay = formatDay; }
     public String getFormatDayNumber() { return formatDayNumber; }
     public void setFormatDayNumber(String formatDayNumber) { this.formatDayNumber = formatDayNumber; }
-    public String getFormatDate() { return formatDate; }
-    public void setFormatDate(String formatDate) { this.formatDate = formatDate; }
     public String getHexColorDay() { return hexColorDay; }
     public void setHexColorDay(String hexColorDay) { this.hexColorDay = hexColorDay; }
     public String getHexColorDayNumber() { return hexColorDayNumber; }
