@@ -39,8 +39,9 @@ public class KBCalendarAdapter extends BaseAdapter {
     private ArrayList<Date> mListDays;
     private int widthScreen;
     private int widthCell;
+    private KBCalendar kbCalendar;
 
-	public KBCalendarAdapter(Context context, ArrayList<Date> listDays, int numberOfRow) {
+	public KBCalendarAdapter(KBCalendar kbCalendar, Context context, ArrayList<Date> listDays, int numberOfRow) {
 		mContext = context;
         mListDays = listDays;
         Display display = ((Activity) context).getWindowManager().getDefaultDisplay();
@@ -48,6 +49,7 @@ public class KBCalendarAdapter extends BaseAdapter {
         display.getSize(size);
         widthScreen = size.x;
         widthCell = widthScreen / numberOfRow;
+        this.kbCalendar = kbCalendar;
 	}
 
 	@Override
@@ -90,8 +92,13 @@ public class KBCalendarAdapter extends BaseAdapter {
         Date day = mListDays.get(position);
 
         setBackgroundColorToView(holder.layoutBackground);
-        holder.txtDayNumber.setText(DateFormat.format("dd/MM", day).toString());
-        holder.txtDayName.setText(DateFormat.format("EEE", day).toString());
+
+        holder.txtDayName.setTextSize(kbCalendar.getDaySize());
+        holder.txtDayNumber.setTextSize(kbCalendar.getDayNumberSize());
+        holder.txtDayName.setTextColor(Color.parseColor(kbCalendar.getHexColorDay()));
+        holder.txtDayNumber.setTextColor(Color.parseColor(kbCalendar.getHexColorDayNumber()));
+        holder.txtDayNumber.setText(DateFormat.format(kbCalendar.getFormatDayNumber(), day).toString());
+        holder.txtDayName.setText(DateFormat.format(kbCalendar.getFormatDay(), day).toString());
 
 		return convertView;
 	}
@@ -101,7 +108,7 @@ public class KBCalendarAdapter extends BaseAdapter {
     }
 
     private void setBackgroundColorToView(View v){
-        v.setBackgroundColor(Color.GRAY);
+        v.setBackgroundColor(Color.parseColor(kbCalendar.getHexBackgroundColor()));
         double temp;
         int middleView = getX(v) + (v.getMeasuredWidth() / 2);
         if(middleView > widthScreen / 2){

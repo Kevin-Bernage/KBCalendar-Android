@@ -2,6 +2,7 @@ package com.kevinbernage.kbcalendar.app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +30,7 @@ public class KBCalendar extends View {
     private Date dateStartCalendar;
     private Date dateEndCalendar;
 
+    //Interface date select event
     private IAgendaDateSelect iAgendaDateSelect;
 
     //Number of Row Show on Screen
@@ -36,10 +38,33 @@ public class KBCalendar extends View {
     //Position in arraylist of the center item
     public static int positionOfCenterItem;
 
+    /* Format, Font Size & Colors*/
+    private int daySize;
+    private int dayNumberSize;
+    private String formatDay;
+    private String formatDayNumber;
+    private String formatDate;
+    private String hexColorDay;
+    private String hexColorDayNumber;
+    private String hexBackgroundColor;
+
+
     public KBCalendar(Context context, IAgendaDateSelect iAgendaDateSelect) {
         super(context);
+
+        /* Defaults variables */
         numberOfRowOnScreen = 5;
-        dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        formatDate = "dd/MM/yyyy";
+        formatDay = "EEE";
+        formatDayNumber = "dd/MM";
+        daySize = 13;
+        dayNumberSize = 17;
+        hexColorDay = String.format("#%06X", (0xFFFFFF & Color.BLACK));
+        hexColorDayNumber = String.format("#%06X", (0xFFFFFF & Color.BLACK));
+        hexBackgroundColor = String.format("#%06X", (0xFFFFFF & Color.GRAY));
+
+
+        dateFormat = new SimpleDateFormat(formatDate);
         try {
             dateStartCalendar = dateFormat.parse("26/06/2013");
             dateEndCalendar = dateFormat.parse("30/06/2014");
@@ -81,7 +106,7 @@ public class KBCalendar extends View {
             mListDays.add(date);
         }
 
-        mCalendarAdapter = new KBCalendarAdapter(getContext(), mListDays, numberOfRowOnScreen);
+        mCalendarAdapter = new KBCalendarAdapter(this, getContext(), mListDays, numberOfRowOnScreen);
         mListView.setAdapter(mCalendarAdapter);
         mListView.setOnScrollListener(new TwoWayView.OnScrollListener() {
             @Override
@@ -137,6 +162,28 @@ public class KBCalendar extends View {
     public void setNumberOfRowOnScreen(int numberOfRowOnScreen) {
         this.numberOfRowOnScreen = numberOfRowOnScreen;
     }
+    /* Return the current selected date */
+    public Date getCurrentDate(){ return mListDays.get(getPositionOfCenterItem()); }
+
+    /* Getters and setters for Format, Font Size and Colors*/
+    public int getDaySize() { return daySize; }
+    public void setDaySize(int daySize) { this.daySize = daySize; }
+    public int getDayNumberSize() { return dayNumberSize; }
+    public void setDayNumberSize(int dayNumberSize) { this.dayNumberSize = dayNumberSize; }
+    public String getFormatDay() { return formatDay; }
+    public void setFormatDay(String formatDay) { this.formatDay = formatDay; }
+    public String getFormatDayNumber() { return formatDayNumber; }
+    public void setFormatDayNumber(String formatDayNumber) { this.formatDayNumber = formatDayNumber; }
+    public String getFormatDate() { return formatDate; }
+    public void setFormatDate(String formatDate) { this.formatDate = formatDate; }
+    public String getHexColorDay() { return hexColorDay; }
+    public void setHexColorDay(String hexColorDay) { this.hexColorDay = hexColorDay; }
+    public String getHexColorDayNumber() { return hexColorDayNumber; }
+    public void setHexColorDayNumber(String hexColorDayNumber) { this.hexColorDayNumber = hexColorDayNumber; }
+
+    /* Getter and setter for background color of agenda. An Alpha is set to this color depends on position of item*/
+    public String getHexBackgroundColor() { return hexBackgroundColor; }
+    public void setHexBackgroundColor(String hexBackgroundColor) { this.hexBackgroundColor = hexBackgroundColor; }
 
 
 
