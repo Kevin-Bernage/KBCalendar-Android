@@ -63,9 +63,17 @@ More possibilities ?
 
  - goToday()
  - centerToDate(Date dateCenter)
+ - getCurrentDate()
 
 ### Others
 
+ - setDaySize(int daySize)
+ - setDayNumberSize(int dayNumberSize)
+ - setFormatDay(String formatDay)
+ - setFormatDayNumber(String formatDayNumber)
+ - setHexColorDay(String hexColorDay)
+ - setHexColorDayNumber(String hexColorDayNumber)
+ - setHexBackgroundColor(String hexBackgroundColor)
  - setDateStartCalendar(Date dateStartCalendar) 
  - setDateEndCalendar(Date dateEndCalendar)
  - setNumberOfRowOnScreen(int numberOfRowOnScreen)
