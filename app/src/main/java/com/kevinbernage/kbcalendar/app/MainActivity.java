@@ -7,7 +7,7 @@ import android.util.Log;
 
 import java.util.Date;
 
-public class MainActivity extends ActionBarActivity implements KBCalendar.IAgendaDateSelect {
+public class MainActivity extends ActionBarActivity implements KBCalendar.IKBAgendaEvent {
 
 
     @Override
@@ -24,4 +24,11 @@ public class MainActivity extends ActionBarActivity implements KBCalendar.IAgend
         Log.i("KBCalendar", "Date : " + DateFormat.format("dd/MM", date).toString());
 
     }
+
+    @Override
+    public void onListScroll(Date date){
+        Log.i("KBCalendar", "Date : " + DateFormat.format("dd/MM", date).toString());
+
+    }
+
 }

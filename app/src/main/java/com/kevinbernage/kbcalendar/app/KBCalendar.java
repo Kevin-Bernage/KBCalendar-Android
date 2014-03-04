@@ -43,8 +43,11 @@ public class KBCalendar extends View {
     private Date dateStartCalendar;
     private Date dateEndCalendar;
 
-    //Interface date select event
-    private IAgendaDateSelect iAgendaDateSelect;
+    //Interface events
+    private IKBAgendaEvent iAgendaDateSelect;
+
+    //RootView
+    private View rootViewParent;
 
     //Number of Row Show on Screen
     private int numberOfRowOnScreen;
@@ -62,8 +65,23 @@ public class KBCalendar extends View {
     private String hexBackgroundColor;
 
 
-    public KBCalendar(Context context, IAgendaDateSelect iAgendaDateSelect) {
+    public KBCalendar(Context context) {
         super(context);
+        init();
+    }
+    public KBCalendar(Context context, IKBAgendaEvent iAgendaDateSelect) {
+        super(context);
+        this.iAgendaDateSelect = iAgendaDateSelect;
+        init();
+    }
+    public KBCalendar(Context context, IKBAgendaEvent iAgendaDateSelect, View rootViewParent) {
+        super(context);
+        this.iAgendaDateSelect = iAgendaDateSelect;
+        this.rootViewParent = rootViewParent;
+        init();
+    }
+
+    private void init(){
 
         /* Defaults variables */
         numberOfRowOnScreen = 5;
@@ -76,21 +94,15 @@ public class KBCalendar extends View {
         hexColorDayNumber = String.format("#%06X", (0xFFFFFF & Color.BLACK));
         hexBackgroundColor = String.format("#%06X", (0xFFFFFF & Color.GRAY));
 
-
         dateFormat = new SimpleDateFormat(formatDate);
         try {
             dateStartCalendar = dateFormat.parse("26/06/2013");
             dateEndCalendar = dateFormat.parse("30/06/2014");
 
         } catch (ParseException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         mListDays = new ArrayList<Date>();
-
-        this.iAgendaDateSelect = iAgendaDateSelect;
-
     }
 
 
@@ -103,7 +115,11 @@ public class KBCalendar extends View {
 
     /* Init KBCalendar View ; This method have to be call imperatively */
     public void loadKBCalendar(){
-        View rootView = ((Activity)getContext()).getWindow().getDecorView().findViewById(android.R.id.content);
+        View rootView;
+        if(rootViewParent != null)
+            rootView = rootViewParent;
+        else
+            rootView = ((Activity)getContext()).getWindow().getDecorView().findViewById(android.R.id.content);
 
         mListView = (TwoWayView) rootView.findViewById(R.id.list);
         mListView.setHorizontalScrollBarEnabled(false);
@@ -111,7 +127,7 @@ public class KBCalendar extends View {
 
         //ArrayList of dates is set with all the dates between
         //start and end date
-        GregorianCalendar calendar = new java.util.GregorianCalendar();
+        GregorianCalendar calendar = new GregorianCalendar();
 
         calendar.setTime(dateStartCalendar);
         calendar.add(Calendar.DATE, -5);
@@ -136,7 +152,8 @@ public class KBCalendar extends View {
                     //On scroll end, the dateSelect event is call
                     //and agenda is center to the good item
                     int position = getPositionOfCenterItem();
-                    iAgendaDateSelect.onDateSelect(mListDays.get(position));
+                    if(iAgendaDateSelect != null)
+                        iAgendaDateSelect.onDateSelect(mListDays.get(position));
                     centerToPosition(position);
                 }
             }
@@ -147,6 +164,7 @@ public class KBCalendar extends View {
                 int shiftCells = numberOfRowOnScreen / 2;
                 positionOfCenterItem = firstVisibleItem + shiftCells;
                 mCalendarAdapter.notifyDataSetChanged();
+                iAgendaDateSelect.onListScroll(getCurrentDate());
             }
         });
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -155,7 +173,8 @@ public class KBCalendar extends View {
                                     long id) {
                 //On item Click, the dateSelect event is call
                 //and agenda is center to the good item
-                iAgendaDateSelect.onDateSelect(mListDays.get(position));
+                if(iAgendaDateSelect != null)
+                    iAgendaDateSelect.onDateSelect(mListDays.get(position));
                 centerToPosition(position);
             }
         });
@@ -295,9 +314,10 @@ public class KBCalendar extends View {
     }
 
 
-    public interface IAgendaDateSelect {
+    public interface IKBAgendaEvent {
 
         public void onDateSelect(Date date);
+        public void onListScroll(Date date);
 
     }
 }
