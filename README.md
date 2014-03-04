@@ -48,7 +48,7 @@ How do I use it?
 More possibilities ?
 ================
 
-### Add date events
+### Add events
 
 1. Implements KBCalendar.IAgendaDateSelect
 
@@ -56,6 +56,11 @@ More possibilities ?
 
         @Override
         public void onDateSelect(Date date) {
+            Log.i("KBCalendar", "Date : " + DateFormat.format("dd/MM", date).toString());
+        }
+        
+        @Override
+        public void onListScroll(Date date) {
             Log.i("KBCalendar", "Date : " + DateFormat.format("dd/MM", date).toString());
         }
 
