@@ -152,9 +152,9 @@ public class KBCalendar extends View {
                     //On scroll end, the dateSelect event is call
                     //and agenda is center to the good item
                     int position = getPositionOfCenterItem();
+                    centerToPosition(position);
                     if(iAgendaDateSelect != null)
                         iAgendaDateSelect.onDateSelect(mListDays.get(position));
-                    centerToPosition(position);
                 }
             }
 
@@ -173,9 +173,9 @@ public class KBCalendar extends View {
                                     long id) {
                 //On item Click, the dateSelect event is call
                 //and agenda is center to the good item
+                centerToPosition(position);
                 if(iAgendaDateSelect != null)
                     iAgendaDateSelect.onDateSelect(mListDays.get(position));
-                centerToPosition(position);
             }
         });
         new InitTask().execute();
